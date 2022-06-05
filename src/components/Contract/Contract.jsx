@@ -1,10 +1,11 @@
-import { Card, Form, notification } from "antd";
-import { useMemo, useState } from "react";
-import Address from "components/Address/Address";
-import { useMoralis, useMoralisQuery } from "react-moralis";
-import { getEllipsisTxt } from "helpers/formatters";
-import ContractMethods from "./ContractMethods";
-import ContractResolver from "./ContractResolver";
+/* eslint-disable prettier/prettier */
+import { Card, Form, notification } from 'antd';
+import { useMemo, useState } from 'react';
+import Address from 'components/Address/Address';
+import { useMoralis, useMoralisQuery } from 'react-moralis';
+import { getEllipsisTxt } from 'helpers/formatters';
+import ContractMethods from './ContractMethods';
+import ContractResolver from './ContractResolver';
 
 export default function Contract() {
   const { Moralis, chainId } = useMoralis();
@@ -12,14 +13,14 @@ export default function Contract() {
   const [contract, setContract] = useState();
 
   /**Moralis Live query for displaying contract's events*/
-  const { data } = useMoralisQuery("Events", (query) => query, [], {
+  const { data } = useMoralisQuery('Events', query => query, [], {
     live: true,
   });
 
   /** Automatically builds write and read components for interacting with contract*/
   const displayedContractFunctions = useMemo(() => {
     if (!contract?.abi) return [];
-    return contract.abi.filter((method) => method["type"] === "function");
+    return contract.abi.filter(method => method['type'] === 'function');
   }, [contract]);
 
   /** Returns true in case if contract is deployed to active chain in wallet */
@@ -30,13 +31,13 @@ export default function Contract() {
 
   const contractAddress = useMemo(() => {
     if (!isDeployedToActiveChain) return null;
-    return contract.networks[parseInt(chainId, 16)]?.["address"] || null;
+    return contract.networks[parseInt(chainId, 16)]?.['address'] || null;
   }, [chainId, contract, isDeployedToActiveChain]);
 
   /** Default function for showing notifications*/
   const openNotification = ({ message, description }) => {
     notification.open({
-      placement: "bottomRight",
+      placement: 'bottomRight',
       message,
       description,
     });
@@ -45,20 +46,20 @@ export default function Contract() {
   return (
     <div
       style={{
-        margin: "auto",
-        display: "flex",
-        gap: "20px",
-        marginTop: "25",
-        width: "70vw",
+        margin: 'auto',
+        display: 'flex',
+        gap: '20px',
+        marginTop: '25',
+        width: '70vw',
       }}
     >
       <Card
         title={
           <div
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
             }}
           >
             Your contract: {contract?.contractName}
@@ -72,10 +73,11 @@ export default function Contract() {
         }
         size="large"
         style={{
-          width: "60%",
-          boxShadow: "0 0.5rem 1.2rem rgb(189 197 209 / 20%)",
-          border: "1px solid #e7eaf3",
-          borderRadius: "0.5rem",
+          width: '60%',
+          // eslint-disable-next-line prettier/prettier
+          boxShadow: '0 0.5rem 1.2rem rgb(189 197 209 / 20%)',
+          border: '1px solid #e7eaf3',
+          borderRadius: '0.5rem',
         }}
       >
         <ContractResolver setContract={setContract} contract={contract} />
@@ -87,10 +89,10 @@ export default function Contract() {
 
               let isView = false;
               /*eslint no-unsafe-optional-chaining: "error"*/
-              for (let method of contract?.abi) {
+              for (let method of contract.abi) {
                 if (method.name !== name) continue;
                 console.log(method);
-                if (method.stateMutability === "view") isView = true;
+                if (method.stateMutability === 'view') isView = true;
               }
 
               const options = {
@@ -105,34 +107,34 @@ export default function Contract() {
                   awaitReceipt: false,
                   ...options,
                 });
-                tx.on("transactionHash", (hash) => {
+                tx.on('transactionHash', hash => {
                   setResponses({
                     ...responses,
                     [name]: { result: null, isLoading: true },
                   });
                   openNotification({
-                    message: "🔊 New Transaction",
+                    message: '🔊 New Transaction',
                     description: `${hash}`,
                   });
-                  console.log("🔊 New Transaction", hash);
+                  console.log('🔊 New Transaction', hash);
                 })
-                  .on("receipt", (receipt) => {
+                  .on('receipt', receipt => {
                     setResponses({
                       ...responses,
                       [name]: { result: null, isLoading: false },
                     });
                     openNotification({
-                      message: "📃 New Receipt",
+                      message: '📃 New Receipt',
                       description: `${receipt.transactionHash}`,
                     });
-                    console.log("🔊 New Receipt: ", receipt);
+                    console.log('🔊 New Receipt: ', receipt);
                   })
-                  .on("error", (error) => {
+                  .on('error', error => {
                     console.error(error);
                   });
               } else {
-                console.log("options22", options);
-                Moralis.executeFunction(options).then((response) =>
+                console.log('options22', options);
+                Moralis.executeFunction(options).then(response =>
                   setResponses({
                     ...responses,
                     [name]: { result: response, isLoading: false },
@@ -152,20 +154,20 @@ export default function Contract() {
         )}
       </Card>
       <Card
-        title={"Contract Events"}
+        title={'Contract Events'}
         size="large"
         style={{
-          width: "40%",
-          boxShadow: "0 0.5rem 1.2rem rgb(189 197 209 / 20%)",
-          border: "1px solid #e7eaf3",
-          borderRadius: "0.5rem",
+          width: '40%',
+          boxShadow: '0 0.5rem 1.2rem rgb(189 197 209 / 20%)',
+          border: '1px solid #e7eaf3',
+          borderRadius: '0.5rem',
         }}
       >
         {data.map((event, key) => (
           <Card
-            title={"Transfer event"}
+            title={'Transfer event'}
             size="small"
-            style={{ marginBottom: "20px" }}
+            style={{ marginBottom: '20px' }}
             key={key}
           >
             {getEllipsisTxt(event.attributes.transaction_hash, 14)}
