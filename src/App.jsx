@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useMoralis } from "react-moralis";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Account from "components/Account/Account";
-import Chains from "components/Chains";
-import TokenPrice from "components/TokenPrice";
+// import Chains from "components/Chains";
+// import TokenPrice from "components/TokenPrice";
 import { Layout } from "antd";
 import "antd/dist/antd.css";
 import NativeBalance from "components/NativeBalance";
@@ -15,6 +15,15 @@ import Upload from "components/Upload";
 import Retrieve from "components/Retrieve";
 import Home from "components/Home";
 const { Header, Footer } = Layout;
+// let Web3 = require("web3");
+// let ContractKit = require("@celo/contractkit");
+// // let BigNumber = require("bignumber.js")
+// let erc20Abi = require("./erc20Abi.json");
+
+// let kit;
+// // eslint-disable-next-line no-unused-vars
+// let cUSDcontract;
+// const cUSDContractAddress = "0x4109fdE7E3bF0409ffb7E5e66Fce0d7129cA7251";
 
 const styles = {
   content: {
@@ -57,6 +66,25 @@ const App = ({ isServerInfo }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated, isWeb3Enabled]);
 
+  // const connectCeloWallet = async function () {
+  //   if (window.celo) {
+  //     try {
+  //       await window.celo.enable();
+  //       const web3 = new Web3(window.celo);
+  //       kit = ContractKit.newKitFromWeb3(web3);
+  //       const accounts = await kit.web3.eth.getAccounts();
+  //       kit.defaultAccount = accounts[0];
+  //       cUSDcontract = new kit.web3.eth.Contract(erc20Abi, cUSDContractAddress);
+  //     } catch (error) {
+  //       console.log(`⚠️ ${error}.`);
+  //     }
+  //   } else {
+  //     console.log("⚠️ Please install the CeloExtensionWallet.");
+  //   }
+  // };
+
+  // connectCeloWallet();
+
   return (
     <Layout style={{ height: "100vh", overflow: "auto" }}>
       <Router>
@@ -64,13 +92,13 @@ const App = ({ isServerInfo }) => {
           <Logo />
           <MenuItems />
           <div style={styles.headerRight}>
-            <Chains />
-            <TokenPrice
+            {/* <Chains /> */}
+            {/* <TokenPrice
               address="0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
               chain="eth"
               image="https://cloudflare-ipfs.com/ipfs/QmXttGpZrECX5qCyXbBQiqgQNytVGeZW5Anewvh2jc4psg/"
               size="40px"
-            />
+            /> */}
             <NativeBalance />
             <Account />
           </div>
