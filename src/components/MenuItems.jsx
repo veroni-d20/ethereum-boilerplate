@@ -18,6 +18,9 @@ function MenuItems() {
       }}
       defaultSelectedKeys={[pathname]}
     >
+      <Menu.Item key="/upload">
+        <NavLink to="/upload">Upload</NavLink>
+      </Menu.Item>
       <Menu.Item key="/quickstart">
         <NavLink to="/quickstart">🚀 Quick Start</NavLink>
       </Menu.Item>
