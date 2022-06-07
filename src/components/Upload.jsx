@@ -62,19 +62,12 @@ export default function Upload() {
   }
 
   return (
-    <section
-      className="d-flex flex-column align-items-center justify-content-center vh-100"
-      style={{
-        background: `url("${bg}")no-repeat center/cover`,
-        // minHeight: "200vh",
-        // width: "100%",
-      }}
-    >
+    <section className="d-flex flex-column align-items-center justify-content-center vh-100">
       <div
-        className="bg-white align-items-center justify-content-center h-75"
+        className="bg-white align-items-center mt-md-5 justify-content-center h-md-75"
         style={{
           minHeight: "85vh",
-          width: "85%",
+          width: "95%",
           borderRadius: "10px",
           boxShadow:
             "0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.16)",
@@ -114,7 +107,7 @@ export default function Upload() {
                     label="Course Description"
                     multiline
                     rows={4}
-                    placeholder="Course description"
+                    //placeholder="Course description"
                     onChange={(e) => {
                       setCourseDescription(e.target.value);
                       console.log(e.target.value);

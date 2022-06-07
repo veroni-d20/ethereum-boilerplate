@@ -14,6 +14,7 @@ import QuickStart from "components/QuickStart";
 import Upload from "components/Upload";
 import Retrieve from "components/Retrieve";
 import Home from "components/Home";
+import bg from "./components/bg.png";
 const { Header } = Layout;
 // let Web3 = require("web3");
 // let ContractKit = require("@celo/contractkit");
@@ -30,7 +31,8 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     fontFamily: "Roboto, sans-serif",
-    color: "#041836",
+    background: `url("${bg}")no-repeat center/cover`,
+    //color: "#041836",
   },
   header: {
     position: "fixed",
