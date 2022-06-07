@@ -8,6 +8,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 // import {Img} from "/images/bglogin.jpg";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+// import bg1 from "././bg1.jpg";
 
 // function Copyright(props) {
 //   return (
@@ -41,7 +42,7 @@ export default function Home() {
             <div className="col-md-7 p-3"> */}
           <Box
             sx={{
-              my: 18,
+              my: 5,
               mx: 4,
               display: "flex",
               flexDirection: "column",
@@ -74,11 +75,66 @@ export default function Home() {
                 </div>
               </motion.div>
             </AnimatePresence>
+            <AnimatePresence>
+              <motion.div
+                id="page-content"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 20 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 2.5 }}
+                className="container overflow-hidden"
+                style={{ paddingTop: "65px" }}
+              >
+                <div
+                  className="col-md-9 p-5 bg-primary text-white "
+                  style={{ height: "70vh", width: "100%" }}
+                >
+                  <h3
+                    className="text-white fw-normal"
+                    style={{ fontSize: "3rem" }}
+                    color="light"
+                  >
+                    About <span className="fw-bold text-white">D</span> Learning
+                    {/* <span className="fw-bold text-white">NFT</span> */}
+                  </h3>
+                  <h6
+                    className="text-white fw-normal"
+                    style={{ fontSize: "3rem" }}
+                    color="light"
+                  >
+                    <span className="fw-bold text-white"> Diverse.</span>
+                    <span className="fw-bold text-white">
+                      Student Centered.
+                    </span>
+                    <span className="fw-bold text-white">Engaging.</span>
+                  </h6>
+                  <p className="fw-normal h4 mt-4 w-100">
+                    <br />D Learning was created for making knowledge-sharing
+                    easier. Typically, it offers a position to work with
+                    students who are thousands of miles away. The functionality
+                    of these platforms makes the learning process easier than
+                    ever before. The Learning Management Systems can offer an
+                    engaging customized learning experience for various sorts of
+                    crowds, from undergrads to industry experts.{" "}
+                  </p>
+                  <div className="text-left justify-start align-items-start py-3">
+                    <Link
+                      to="/allCourses"
+                      className="btn btn-primary bg-white btn-lg h1 fw-bold text-primary"
+                    >
+                      What's making you wait? <br /> Come show the students the
+                      D-Learning World
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </Box>
 
           {/* </div> */}
 
-          {/* <motion.div
+          {/* {
+            <motion.div
               whileHover={{
                 x: -120,
                 scale: 1.2,
@@ -89,11 +145,12 @@ export default function Home() {
             >
               <img
                 className="no-drag"
-                src="images/chameleon.png"
+                src="https://img.freepik.com/free-vector/cute-parrot-bird-branch-cartoon-animal-wildlife-icon-concept-isolated-flat-cartoon-style_138676-2176.jpg?t=st=1654625464~exp=1654626064~hmac=4152c6a44ba41e8ae62ff190850f82d48c69d8febfe4af157943286815b7d1f5&w=740"
                 style={{ height: "300px" }}
                 alt="branding"
               />
-            </motion.div> */}
+            </motion.div>
+          } */}
           {/* </div> */}
           {/* <Box
             sx={{
@@ -125,15 +182,17 @@ export default function Home() {
           sm={4}
           md={7}
           sx={{
+            // background: `url("${bg1}")no-repeat center/cover`,
             backgroundImage:
-              "url(https://img.freepik.com/free-vector/online-tutorials-concept_52683-37481.jpg?w=900&t=st=1652125977~exp=1652126577~hmac=c2a18dc6516704bfaabe34170b7f416c2b3fed649808920cbbf298553f74d5f2)",
-            backgroundRepeat: "no-repeat",
+              "url(https://img.freepik.com/free-vector/online-tutorials-concept_52683-37481.jpg?w=996&t=st=1654628358~exp=1654628958~hmac=5459e42df06ade83883817b11e71f22c0b155ef2caa6a96bf7568e821b4bc0df)",
+            backgroundRepeat: "cover",
             backgroundColor: (t) =>
               t.palette.mode === "light"
                 ? t.palette.grey[50]
                 : t.palette.grey[900],
             backgroundSize: "cover",
             backgroundPosition: "center",
+            height: "120vh",
           }}
         />
       </Grid>
