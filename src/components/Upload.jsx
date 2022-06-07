@@ -117,17 +117,18 @@ export default function Upload() {
                     }}
                   />
                 </div>
-
-                <TextField
-                  id="course-duration"
-                  label="Course duration"
-                  variant="outlined"
-                  fullWidth
-                  onChange={(e) => {
-                    setCourseDuration(e.target.value);
-                    console.log(e.target.value);
-                  }}
-                />
+                <div className="my-1 py-2 ">
+                  <TextField
+                    id="course-duration"
+                    label="Course duration"
+                    variant="outlined"
+                    fullWidth
+                    onChange={(e) => {
+                      setCourseDuration(e.target.value);
+                      console.log(e.target.value);
+                    }}
+                  />
+                </div>
               </Box>
             </div>
             <div
