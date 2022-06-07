@@ -14,6 +14,7 @@ import QuickStart from "components/QuickStart";
 import Upload from "components/Upload";
 import Retrieve from "components/Retrieve";
 import Home from "components/Home";
+import Score from "components/Score";
 import bg from "./components/bg.png";
 const { Header } = Layout;
 // let Web3 = require("web3");
@@ -118,6 +119,9 @@ const App = ({ isServerInfo }) => {
             </Route>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route exact path="/score">
+              <Score />
             </Route>
             <Route path="/nonauthenticated">
               <>Please login using the "Authenticate" button</>

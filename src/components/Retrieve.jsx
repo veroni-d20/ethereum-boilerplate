@@ -9,7 +9,6 @@ import { useState } from "react";
 // // import { Dialog, DialogContent, DialogContentText } from "@mui/material";
 // import Typography from "@mui/material/Typography";
 // import dummyData from "../data/courses.json";
-import bg from "./bg.png";
 
 export default function Retrieve() {
   //   const [open, setOpen] = useState(false);
@@ -49,17 +48,12 @@ export default function Retrieve() {
   //   };
 
   return (
-    <section
-      className="d-flex flex-column align-items-center justify-content-center vh-100"
-      style={{
-        background: `url("${bg}")no-repeat center/cover`,
-      }}
-    >
+    <section className="d-flex flex-column align-items-center justify-content-center vh-100">
       <div
-        className="bg-white align-items-center justify-content-center h-75  p-4"
+        className="bg-white align-items-center mt-md-5 justify-content-center h-md-75"
         style={{
           minHeight: "85vh",
-          width: "85%",
+          width: "95%",
           borderRadius: "10px",
           boxShadow:
             "0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.16)",
