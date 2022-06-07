@@ -17,28 +17,27 @@ function MenuItems() {
         fontWeight: "500",
         width: "100%",
         justifyContent: "center",
-        textDecoration: "none !important",
       }}
       defaultSelectedKeys={[pathname]}
     >
       {isAuthenticated && (
         <Menu.Item key="/upload">
           <NavLink to="/upload" style={{ textDecoration: "none" }}>
-            Upload
+            Upload Materials 🧑‍🏫
           </NavLink>
         </Menu.Item>
       )}
       {isAuthenticated && (
         <Menu.Item key="/allCourses">
           <NavLink to="/allCourses" style={{ textDecoration: "none" }}>
-            View Courses
+            View Courses 📚
           </NavLink>
         </Menu.Item>
       )}
       {isAuthenticated && (
         <Menu.Item key="/score">
           <NavLink to="/score" style={{ textDecoration: "none" }}>
-            View Score
+            View Score 🏅
           </NavLink>
         </Menu.Item>
       )}
