@@ -16,7 +16,9 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    fontSize: "16px",
     width: "fit-content",
+    marginLeft: "4 px",
     borderRadius: "12px",
     backgroundColor: "rgb(244, 244, 244)",
     cursor: "pointer",
@@ -54,7 +56,9 @@ function Account() {
     return (
       <>
         <div onClick={() => setIsAuthModalVisible(true)}>
-          <p style={styles.text}>Authenticate</p>
+          <p className="" style={styles.text}>
+            Connect to Wallet
+          </p>
         </div>
         <Modal
           visible={isAuthModalVisible}
@@ -79,7 +83,7 @@ function Account() {
           >
             Connect Wallet
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+          <div>
             {connectors.map(({ title, icon, connectorId }, key) => (
               <div
                 style={styles.connector}

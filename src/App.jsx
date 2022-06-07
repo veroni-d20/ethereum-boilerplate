@@ -2,19 +2,19 @@ import { useEffect } from "react";
 import { useMoralis } from "react-moralis";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Account from "components/Account/Account";
-// import Chains from "components/Chains";
-// import TokenPrice from "components/TokenPrice";
+//import Chains from "components/Chains";
+//import TokenPrice from "components/TokenPrice";
 import { Layout } from "antd";
 import "antd/dist/antd.css";
 import NativeBalance from "components/NativeBalance";
 import "./style.css";
 import QuickStart from "components/QuickStart";
-import Text from "antd/lib/typography/Text";
-import MenuItems from "./components/MenuItems";
+//import Text from "antd/lib/typography/Text";
+//import MenuItems from "./components/MenuItems";
 import Upload from "components/Upload";
 import Retrieve from "components/Retrieve";
 import Home from "components/Home";
-const { Header, Footer } = Layout;
+const { Header } = Layout;
 // let Web3 = require("web3");
 // let ContractKit = require("@celo/contractkit");
 // // let BigNumber = require("bignumber.js")
@@ -31,8 +31,6 @@ const styles = {
     justifyContent: "center",
     fontFamily: "Roboto, sans-serif",
     color: "#041836",
-    marginTop: "130px",
-    padding: "10px",
   },
   header: {
     position: "fixed",
@@ -49,10 +47,11 @@ const styles = {
   },
   headerRight: {
     display: "flex",
-    gap: "20px",
+    //gap: "20px",
     alignItems: "center",
-    fontSize: "15px",
+    fontSize: "20px",
     fontWeight: "600",
+    padding: "10px",
   },
 };
 const App = ({ isServerInfo }) => {
@@ -90,7 +89,7 @@ const App = ({ isServerInfo }) => {
       <Router>
         <Header style={styles.header}>
           <Logo />
-          <MenuItems />
+          {/* <MenuItems /> */}
           <div style={styles.headerRight}>
             {/* <Chains /> */}
             {/* <TokenPrice
@@ -124,11 +123,6 @@ const App = ({ isServerInfo }) => {
           </Switch>
         </div>
       </Router>
-      <Footer style={{ textAlign: "center" }}>
-        <Text style={{ display: "block" }}>
-          Copyrights © 2022. All rights reserved.
-        </Text>
-      </Footer>
     </Layout>
   );
 };
