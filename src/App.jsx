@@ -17,6 +17,7 @@ import Home from "components/Pages/Home";
 import Score from "components/Pages/Score";
 import Player from "components/Pages/Player";
 import bg from "./components/bg.png";
+import MyCourses from "components/Pages/MyCourses";
 const { Header } = Layout;
 // let Web3 = require("web3");
 // let ContractKit = require("@celo/contractkit");
@@ -30,8 +31,8 @@ const { Header } = Layout;
 
 const styles = {
   content: {
-    display: "flex",
-    justifyContent: "center",
+    //display: "flex",
+    //justifyContent: "center",
     fontFamily: "Roboto, sans-serif",
     background: `url("${bg}")no-repeat center/cover`,
     //color: "#041836",
@@ -126,6 +127,9 @@ const App = ({ isServerInfo }) => {
             </Route>
             <Route exact path="/player">
               <Player />
+            </Route>
+            <Route exact path="/myCourses">
+              <MyCourses />
             </Route>
             <Route path="/nonauthenticated">
               <>Please login using the "Authenticate" button</>

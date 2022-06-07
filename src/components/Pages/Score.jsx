@@ -12,7 +12,7 @@ export default function Score() {
           className="bg-white align-items-center  justify-content-center h-md-75"
           style={{
             minHeight: "85vh",
-            width: "95%",
+            width: "100%",
             borderRadius: "10px",
             boxShadow:
               "0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.16)",

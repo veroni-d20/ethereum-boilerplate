@@ -35,6 +35,13 @@ function MenuItems() {
         </Menu.Item>
       )}
       {isAuthenticated && (
+        <Menu.Item key="/myCourses">
+          <NavLink to="/myCourses" style={{ textDecoration: "none" }}>
+            My Courses ❤️
+          </NavLink>
+        </Menu.Item>
+      )}
+      {isAuthenticated && (
         <Menu.Item key="/score">
           <NavLink to="/score" style={{ textDecoration: "none" }}>
             Check Score 🏅
