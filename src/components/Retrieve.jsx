@@ -9,6 +9,7 @@ import { useState } from "react";
 // // import { Dialog, DialogContent, DialogContentText } from "@mui/material";
 // import Typography from "@mui/material/Typography";
 // import dummyData from "../data/courses.json";
+import Layout from "./Layout";
 
 export default function Retrieve() {
   //   const [open, setOpen] = useState(false);
@@ -49,24 +50,25 @@ export default function Retrieve() {
 
   return (
     <section className="d-flex flex-column align-items-center justify-content-center vh-100">
-      <div
-        className="bg-white align-items-center mt-md-5 justify-content-center h-md-75"
-        style={{
-          minHeight: "85vh",
-          width: "95%",
-          borderRadius: "10px",
-          boxShadow:
-            "0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.16)",
-        }}
-      >
-        <h3 className="text-center pb-2">Courses</h3>
+      <Layout>
+        <div
+          className="bg-white align-items-center justify-content-center h-md-75"
+          style={{
+            minHeight: "85vh",
+            width: "95%",
+            borderRadius: "10px",
+            boxShadow:
+              "0 8px 16px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.16)",
+          }}
+        >
+          <h3 className="text-center pt-4">Courses</h3>
 
-        {loading ? (
-          <h4>Loading</h4>
-        ) : (
-          <>
-            <div className="row">
-              {/* {dummyData.map((e) => (
+          {loading ? (
+            <h4>Loading</h4>
+          ) : (
+            <>
+              <div className="row">
+                {/* {dummyData.map((e) => (
                 <div className="col-md-6 col-lg-4 mb-3" key={e.objectId}>
                   <Card
                     sx={{
@@ -112,11 +114,11 @@ export default function Retrieve() {
                   </Card>
                 </div>
               ))} */}
-            </div>
-          </>
-        )}
+              </div>
+            </>
+          )}
 
-        {/* <Dialog
+          {/* <Dialog
           open={open}
           onClose={handleClose}
           aria-labelledby="alert-dialog-title"
@@ -131,7 +133,8 @@ export default function Retrieve() {
             </DialogContentText>
           </DialogContent>
         </Dialog> */}
-      </div>
+        </div>
+      </Layout>
     </section>
   );
 }
