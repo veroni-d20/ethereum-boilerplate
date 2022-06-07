@@ -57,7 +57,7 @@ function Account() {
       <>
         <div onClick={() => setIsAuthModalVisible(true)}>
           <p className="" style={styles.text}>
-            Connect to Wallet
+            Connect
           </p>
         </div>
         <Modal

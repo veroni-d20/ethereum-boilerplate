@@ -10,7 +10,7 @@ import NativeBalance from "components/NativeBalance";
 import "./style.css";
 import QuickStart from "components/QuickStart";
 //import Text from "antd/lib/typography/Text";
-//import MenuItems from "./components/MenuItems";
+import MenuItems from "./components/MenuItems";
 import Upload from "components/Upload";
 import Retrieve from "components/Retrieve";
 import Home from "components/Home";
@@ -92,7 +92,7 @@ const App = ({ isServerInfo }) => {
       <Router>
         <Header style={styles.header}>
           <Logo />
-          {/* <MenuItems /> */}
+          <MenuItems />
           <div style={styles.headerRight}>
             {/* <Chains /> */}
             {/* <TokenPrice
