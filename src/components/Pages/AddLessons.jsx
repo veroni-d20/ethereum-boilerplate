@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import { TextField, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -21,9 +22,10 @@ export default function AddLessons() {
   const [courseName, setCourseName] = useState("");
   const [courseDescription, setCourseDescription] = useState("");
   const [courseDuration, setCourseDuration] = useState("");
+  const { courseId } = useParams();
 
   async function createCourse() {
-    const result = await client.add({
+    let file = {
       name: courseName,
       description: courseDescription,
       Duration: courseDuration,
@@ -31,8 +33,11 @@ export default function AddLessons() {
       video_CID: fileCid,
       imageUrl: imageUrl,
       videoUrl: fileUrl,
-    });
+    };
+    const metaObj = JSON.stringify(file);
+    const result = await client.add(metaObj);
     const url = `https://ipfs.infura.io/ipfs/${result.path}`;
+    console.log(url);
     return result.cid.toString();
     // const receipt = await blockchain.contract.methods
     //   .addInstituteInfo(instituteName, instituteAddress)
@@ -51,7 +56,7 @@ export default function AddLessons() {
       const added = await client.add(file);
       const url = `https://ipfs.infura.io/ipfs/${added.path}`;
 
-      console.log(added.cid.toString());
+      console.log(url);
       return {
         url: url,
         cid: added.cid,
@@ -195,25 +200,27 @@ export default function AddLessons() {
                       Attach Image
                     </Button>
                   </label>
-                  <Button
-                    variant="contained"
-                    component="span"
-                    sx={{
-                      borderRadius: "5px",
-                      backgroundColor: "#3b82f6",
-                      maxHeight: "50px",
-                      minHeight: "30px",
-                      "&:hover": {
-                        backgroundColor: "#fff",
-                        color: "#3b82f6",
-                      },
-                    }}
-                    onClick={() => {
-                      createCourse();
-                    }}
-                  >
-                    Upload
-                  </Button>
+                  <Link to={`/myCourses/${courseId}`}>
+                    <Button
+                      variant="contained"
+                      component="span"
+                      sx={{
+                        borderRadius: "5px",
+                        backgroundColor: "#3b82f6",
+                        maxHeight: "50px",
+                        minHeight: "30px",
+                        "&:hover": {
+                          backgroundColor: "#fff",
+                          color: "#3b82f6",
+                        },
+                      }}
+                      onClick={() => {
+                        createCourse();
+                      }}
+                    >
+                      Upload
+                    </Button>
+                  </Link>
                 </Box>
               </div>
             </div>

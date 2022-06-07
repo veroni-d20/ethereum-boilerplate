@@ -126,13 +126,13 @@ const App = ({ isServerInfo }) => {
             <Route exact path="/score">
               <Score />
             </Route>
-            <Route exact path="/player">
+            <Route exact path="/player/:courseId/:lessonId">
               <Player />
             </Route>
-            <Route exact path="/myCourses">
+            <Route exact path="/myCourses/:courseId">
               <MyCourses />
             </Route>
-            <Route exact path="/addLessons">
+            <Route exact path="/addLessons/:courseId">
               <AddLessons />
             </Route>
             <Route path="/nonauthenticated">

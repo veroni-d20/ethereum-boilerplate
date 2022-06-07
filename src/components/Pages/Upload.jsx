@@ -46,7 +46,8 @@ export default function Upload() {
       imageUrl: imageUrl,
       videoUrl: fileUrl,
     };
-    const result = await client.add(file);
+    const metaObj = JSON.stringify(file);
+    const result = await client.add(metaObj);
     const url = `https://ipfs.infura.io/ipfs/${result.path}`;
     console.log(url);
     return result.cid.toString();
@@ -67,7 +68,7 @@ export default function Upload() {
       const added = await client.add(file);
       const url = `https://ipfs.infura.io/ipfs/${added.path}`;
 
-      console.log(added.cid.toString());
+      console.log(url);
       return {
         url: url,
         cid: added.cid,
@@ -211,26 +212,28 @@ export default function Upload() {
                       Attach Image
                     </Button>
                   </label>
-                  <Button
-                    variant="contained"
-                    component="span"
-                    sx={{
-                      borderRadius: "5px",
-                      backgroundColor: "#3b82f6",
-                      maxHeight: "50px",
-                      minHeight: "30px",
-                      "&:hover": {
-                        backgroundColor: "#fff",
-                        color: "#3b82f6",
-                      },
-                    }}
-                    onClick={() => {
-                      const cidUrl = createCourse();
-                      // runContractFunction();
-                    }}
-                  >
-                    Upload
-                  </Button>
+                  <Link to="/allCourses">
+                    <Button
+                      variant="contained"
+                      component="span"
+                      sx={{
+                        borderRadius: "5px",
+                        backgroundColor: "#3b82f6",
+                        maxHeight: "50px",
+                        minHeight: "30px",
+                        "&:hover": {
+                          backgroundColor: "#fff",
+                          color: "#3b82f6",
+                        },
+                      }}
+                      onClick={() => {
+                        const cidUrl = createCourse();
+                        // runContractFunction();
+                      }}
+                    >
+                      Upload
+                    </Button>
+                  </Link>
                 </Box>
               </div>
             </div>
