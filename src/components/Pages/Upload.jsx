@@ -6,6 +6,8 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { create } from "ipfs-http-client";
 import Layout from "./Layout";
+// import { useAPIContract } from "react-moralis";
+// import erc20Abi from "./erc20Abi.json";
 
 const client = create("https://ipfs.infura.io:5001/api/v0");
 
@@ -21,9 +23,20 @@ export default function Upload() {
   const [courseName, setCourseName] = useState("");
   const [courseDescription, setCourseDescription] = useState("");
   const [courseDuration, setCourseDuration] = useState("");
+  // const cUSDContractAddress = "0x4109fdE7E3bF0409ffb7E5e66Fce0d7129cA7251";
+
+  // const { runContractFunction, data, error, isLoading, isFetching } =
+  //   useAPIContract({
+  //     abi: erc20Abi,
+  //     address: cUSDContractAddress,
+  //     functionName: "createCourse",
+  //     params: {
+  //       name: "courseURI",
+  //     },
+  //   });
 
   async function createCourse() {
-    const result = await client.add({
+    let file = {
       name: courseName,
       description: courseDescription,
       Duration: courseDuration,
@@ -31,8 +44,10 @@ export default function Upload() {
       video_CID: fileCid,
       imageUrl: imageUrl,
       videoUrl: fileUrl,
-    });
+    };
+    const result = await client.add(file);
     const url = `https://ipfs.infura.io/ipfs/${result.path}`;
+    console.log(url);
     return result.cid.toString();
     // const receipt = await blockchain.contract.methods
     //   .addInstituteInfo(instituteName, instituteAddress)
@@ -209,7 +224,8 @@ export default function Upload() {
                       },
                     }}
                     onClick={() => {
-                      createCourse();
+                      const cidUrl = createCourse();
+                      // runContractFunction();
                     }}
                   >
                     Upload
