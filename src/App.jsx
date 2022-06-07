@@ -6,7 +6,7 @@ import Account from "components/Account/Account";
 //import TokenPrice from "components/TokenPrice";
 import { Layout } from "antd";
 import "antd/dist/antd.css";
-import NativeBalance from "components/NativeBalance";
+// import NativeBalance from "components/NativeBalance";
 import "./style.css";
 import QuickStart from "components/QuickStart";
 //import Text from "antd/lib/typography/Text";
@@ -104,7 +104,7 @@ const App = ({ isServerInfo }) => {
               image="https://cloudflare-ipfs.com/ipfs/QmXttGpZrECX5qCyXbBQiqgQNytVGeZW5Anewvh2jc4psg/"
               size="40px"
             /> */}
-            <NativeBalance />
+            {/* <NativeBalance /> */}
             <Account />
           </div>
         </Header>

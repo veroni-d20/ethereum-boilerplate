@@ -9,6 +9,7 @@ import { SelectOutlined } from "@ant-design/icons";
 import { getExplorer } from "helpers/networks";
 import Text from "antd/lib/typography/Text";
 import { connectors } from "./config";
+import { useHistory } from "react-router-dom";
 const styles = {
   account: {
     height: "42px",
@@ -47,6 +48,7 @@ const styles = {
 };
 
 function Account() {
+  const history = useHistory();
   const { authenticate, isAuthenticated, account, chainId, logout } =
     useMoralis();
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -90,7 +92,9 @@ function Account() {
                 key={key}
                 onClick={async () => {
                   try {
-                    await authenticate({ provider: connectorId });
+                    await authenticate({ provider: connectorId }).then(() => {
+                      history.push("/upload");
+                    });
                     window.localStorage.setItem("connectorId", connectorId);
                     setIsAuthModalVisible(false);
                   } catch (e) {
@@ -180,7 +184,9 @@ function Account() {
             fontWeight: "500",
           }}
           onClick={async () => {
-            await logout();
+            await logout().then(() => {
+              history.push("/");
+            });
             window.localStorage.removeItem("connectorId");
             setIsModalVisible(false);
           }}
