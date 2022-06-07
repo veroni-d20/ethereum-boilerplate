@@ -37,12 +37,15 @@ export default function Score() {
                 src="https://img.freepik.com/free-vector/grades-concept-illustration_114360-628.jpg?w=996&t=st=1654146029~exp=1654146629~hmac=075ffe1c34133142e97c83e31e9d9eb4fa80937baeca5086db1a552e4ffc03fb"
               />
             </div>
-            <div className="col-md-6 d-flex flex-column align-items-center justify-content-center">
-              <h4>Your Score is 45</h4>
+            <div className="col-md-6 d-flex flex-column align-items-center text-center justify-content-center">
+              <h3 className="text-dark fw-normal">
+                Your Score is
+                <span className="fw-bold text-primary"> 45</span>
+              </h3>
               <br />
-              <h4>
-                You are a <b> Challenger!🎖</b>
-              </h4>
+              <h2 className="text-dark fw-semibold">
+                You are a <b> Challenger🎖</b>
+              </h2>
             </div>
           </div>
         </div>
