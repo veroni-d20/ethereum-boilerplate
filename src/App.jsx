@@ -19,6 +19,7 @@ import Player from "components/Pages/Player";
 import bg from "./components/bg.png";
 import MyCourses from "components/Pages/MyCourses";
 const { Header } = Layout;
+import AddLessons from "components/Pages/AddLessons";
 // let Web3 = require("web3");
 // let ContractKit = require("@celo/contractkit");
 // // let BigNumber = require("bignumber.js")
@@ -130,6 +131,9 @@ const App = ({ isServerInfo }) => {
             </Route>
             <Route exact path="/myCourses">
               <MyCourses />
+            </Route>
+            <Route exact path="/addLessons">
+              <AddLessons />
             </Route>
             <Route path="/nonauthenticated">
               <>Please login using the "Authenticate" button</>
