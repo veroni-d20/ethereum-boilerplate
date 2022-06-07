@@ -6,7 +6,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { create } from "ipfs-http-client";
 import Layout from "./Layout";
-import { Link } from "react-router-dom";
 
 const client = create("https://ipfs.infura.io:5001/api/v0");
 
@@ -14,7 +13,7 @@ const Input = styled("input")({
   display: "none",
 });
 
-export default function Upload() {
+export default function AddLessons() {
   const [fileUrl, setFileUrl] = useState("");
   const [fileCid, setFileCid] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -78,10 +77,10 @@ export default function Upload() {
           <div className="container pt-4">
             <div className="text-center">
               <b>
-                <h3>Upload Course</h3>
+                <h3>Add Lessons</h3>
               </b>
               <Typography component="h1" variant="h6">
-                Here's the right way to teach!
+                Add Sub Modules to your course
               </Typography>
             </div>
 
@@ -196,27 +195,25 @@ export default function Upload() {
                       Attach Image
                     </Button>
                   </label>
-                  <Link to="/addLessons" style={{ textDecoration: "none" }}>
-                    <Button
-                      variant="contained"
-                      component="span"
-                      sx={{
-                        borderRadius: "5px",
-                        backgroundColor: "#3b82f6",
-                        maxHeight: "50px",
-                        minHeight: "30px",
-                        "&:hover": {
-                          backgroundColor: "#fff",
-                          color: "#3b82f6",
-                        },
-                      }}
-                      onClick={() => {
-                        //createCourse();
-                      }}
-                    >
-                      Upload
-                    </Button>
-                  </Link>
+                  <Button
+                    variant="contained"
+                    component="span"
+                    sx={{
+                      borderRadius: "5px",
+                      backgroundColor: "#3b82f6",
+                      maxHeight: "50px",
+                      minHeight: "30px",
+                      "&:hover": {
+                        backgroundColor: "#fff",
+                        color: "#3b82f6",
+                      },
+                    }}
+                    onClick={() => {
+                      createCourse();
+                    }}
+                  >
+                    Upload
+                  </Button>
                 </Box>
               </div>
             </div>
