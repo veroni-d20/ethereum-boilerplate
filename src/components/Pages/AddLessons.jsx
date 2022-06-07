@@ -1,14 +1,12 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import { TextField, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { create } from "ipfs-http-client";
 import Layout from "./Layout";
-// import { useAPIContract } from "react-moralis";
-// import erc20Abi from "./erc20Abi.json";
-import { Link } from "react-router-dom";
 
 const client = create("https://ipfs.infura.io:5001/api/v0");
 
@@ -16,7 +14,7 @@ const Input = styled("input")({
   display: "none",
 });
 
-export default function Upload() {
+export default function AddLessons() {
   const [fileUrl, setFileUrl] = useState("");
   const [fileCid, setFileCid] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -24,17 +22,7 @@ export default function Upload() {
   const [courseName, setCourseName] = useState("");
   const [courseDescription, setCourseDescription] = useState("");
   const [courseDuration, setCourseDuration] = useState("");
-  // const cUSDContractAddress = "0x4109fdE7E3bF0409ffb7E5e66Fce0d7129cA7251";
-
-  // const { runContractFunction, data, error, isLoading, isFetching } =
-  //   useAPIContract({
-  //     abi: erc20Abi,
-  //     address: cUSDContractAddress,
-  //     functionName: "createCourse",
-  //     params: {
-  //       name: "courseURI",
-  //     },
-  //   });
+  const { courseId } = useParams();
 
   async function createCourse() {
     let file = {
@@ -94,10 +82,10 @@ export default function Upload() {
           <div className="container pt-4">
             <div className="text-center">
               <b>
-                <h3>Upload Course</h3>
+                <h3>Add Lessons</h3>
               </b>
               <Typography component="h1" variant="h6">
-                Here's the right way to teach!
+                Add Sub Modules to your course
               </Typography>
             </div>
 
@@ -212,7 +200,7 @@ export default function Upload() {
                       Attach Image
                     </Button>
                   </label>
-                  <Link to="/allCourses">
+                  <Link to={`/myCourses/${courseId}`}>
                     <Button
                       variant="contained"
                       component="span"
@@ -227,8 +215,7 @@ export default function Upload() {
                         },
                       }}
                       onClick={() => {
-                        const cidUrl = createCourse();
-                        // runContractFunction();
+                        createCourse();
                       }}
                     >
                       Upload

@@ -6,7 +6,7 @@ import Account from "components/Account/Account";
 //import TokenPrice from "components/TokenPrice";
 import { Layout } from "antd";
 import "antd/dist/antd.css";
-import NativeBalance from "components/NativeBalance";
+// import NativeBalance from "components/NativeBalance";
 import "./style.css";
 import QuickStart from "components/QuickStart";
 //import Text from "antd/lib/typography/Text";
@@ -19,6 +19,7 @@ import Player from "components/Pages/Player";
 import bg from "./components/bg.png";
 import MyCourses from "components/Pages/MyCourses";
 const { Header } = Layout;
+import AddLessons from "components/Pages/AddLessons";
 // let Web3 = require("web3");
 // let ContractKit = require("@celo/contractkit");
 // // let BigNumber = require("bignumber.js")
@@ -103,7 +104,7 @@ const App = ({ isServerInfo }) => {
               image="https://cloudflare-ipfs.com/ipfs/QmXttGpZrECX5qCyXbBQiqgQNytVGeZW5Anewvh2jc4psg/"
               size="40px"
             /> */}
-            <NativeBalance />
+            {/* <NativeBalance /> */}
             <Account />
           </div>
         </Header>
@@ -125,11 +126,14 @@ const App = ({ isServerInfo }) => {
             <Route exact path="/score">
               <Score />
             </Route>
-            <Route exact path="/player">
+            <Route exact path="/player/:courseId/:lessonId">
               <Player />
             </Route>
-            <Route exact path="/myCourses">
+            <Route exact path="/myCourses/:courseId">
               <MyCourses />
+            </Route>
+            <Route exact path="/addLessons/:courseId">
+              <AddLessons />
             </Route>
             <Route path="/nonauthenticated">
               <>Please login using the "Authenticate" button</>

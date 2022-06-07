@@ -1,20 +1,25 @@
-import { useState } from "react";
-// import {
-//   Card,
-//   CardActions,
-//   CardContent,
-//   Button,
-//   CardMedia,
-// } from "@mui/material";
-// // import { Dialog, DialogContent, DialogContentText } from "@mui/material";
-// import Typography from "@mui/material/Typography";
-// import dummyData from "../data/courses.json";
+import { useEffect, useState } from "react";
+import data from "./data.json";
+import {
+  Card,
+  CardActions,
+  CardContent,
+  Button,
+  CardMedia,
+} from "@mui/material";
+import { Link } from "react-router-dom";
+import { Dialog, DialogContent, DialogContentText } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import Layout from "./Layout";
 
 export default function Retrieve() {
-  //   const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(true);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   //   const [data, setData] = useState([]);
 
   //   const handleClickOpen = async (id) => {
@@ -47,6 +52,9 @@ export default function Retrieve() {
   //     user.save();
   //     console.log(user);
   //   };
+  useEffect(() => {
+    setLoading(false);
+  }, []);
 
   return (
     <section className="d-flex flex-column align-items-center justify-content-center vh-100">
@@ -70,71 +78,73 @@ export default function Retrieve() {
           ) : (
             <>
               <div className="row">
-                {/* {dummyData.map((e) => (
-                <div className="col-md-6 col-lg-4 mb-3" key={e.objectId}>
-                  <Card
-                    sx={{
-                      maxWidth: 450,
-                      bgcolor: "#5cdab3",
-                    }}
-                  >
-                    <CardContent>
-                      <CardMedia
-                        component="img"
-                        height="120"
-                        image={e.imageUrl}
-                        alt={e.courseName}
-                      />
-                      <div className="d-flex justify-content-between pt-3">
-                        <Typography
-                          sx={{ fontSize: 20, fontWeight: "bold" }}
-                          color="text.primary"
-                          gutterBottom
-                        >
-                          {e.courseName}
-                        </Typography>
-                        <p className="m-0">
-                          <b>{e.duration}</b> Weeks
-                        </p>
-                      </div>
+                {data.map((e) => (
+                  <div className="col-md-6 col-lg-4 mb-3" key={e.courseId}>
+                    <Card
+                      sx={{
+                        maxWidth: 450,
+                        bgcolor: "#5cdab3",
+                      }}
+                    >
+                      <CardContent>
+                        <CardMedia
+                          component="img"
+                          height="120"
+                          image={e.imageUrl}
+                          alt={e.courseName}
+                        />
+                        <div className="d-flex justify-content-between pt-3">
+                          <Typography
+                            sx={{ fontSize: 20, fontWeight: "bold" }}
+                            color="text.primary"
+                            gutterBottom
+                          >
+                            {e.courseName}
+                          </Typography>
+                          <p className="m-0">
+                            <b>{e.duration}</b> Weeks
+                          </p>
+                        </div>
 
-                      <Typography color="text.secondary">
-                        {e.description}
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button
-                        size="small"
-                        color="primary"
-                        // onClick={() => {
-                        //   handleClickOpen(e.objectId);
-                        // }}
-                      >
-                        Buy course
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </div>
-              ))} */}
+                        <Typography color="text.secondary">
+                          {e.description}
+                        </Typography>
+                      </CardContent>
+                      <CardActions>
+                        <Link to={`/addLessons/${e.courseId}`}>
+                          <Button
+                            size="small"
+                            color="primary"
+                            onClick={() => {
+                              setOpen(true);
+                            }}
+                          >
+                            Add Lessons
+                          </Button>
+                        </Link>
+                      </CardActions>
+                    </Card>
+                  </div>
+                ))}
               </div>
             </>
           )}
 
-          {/* <Dialog
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogContent>
-            <DialogContentText
-              id="alert-dialog-description"
-              sx={{ color: "#1e293b" }}
-            >
-              You have enrolled in the course successfully.✅
-            </DialogContentText>
-          </DialogContent>
-        </Dialog> */}
+          <Dialog
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <DialogContent>
+              <DialogContentText
+                id="alert-dialog-description"
+                sx={{ color: "#1e293b" }}
+              >
+                You have enrolled in the course successfully.✅
+              </DialogContentText>
+            </DialogContent>
+          </Dialog>
         </div>
       </Layout>
     </section>
