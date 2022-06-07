@@ -152,7 +152,7 @@ export default function Upload() {
                     <Button
                       variant="contained"
                       sx={{
-                        borderRadius: "30px",
+                        borderRadius: "5px",
                         backgroundColor: "#3b82f6",
                         maxHeight: "50px",
                         minHeight: "30px",
@@ -181,7 +181,7 @@ export default function Upload() {
                     <Button
                       variant="contained"
                       sx={{
-                        borderRadius: "30px",
+                        borderRadius: "5px",
                         backgroundColor: "#3b82f6",
                         maxHeight: "50px",
                         minHeight: "30px",
@@ -199,7 +199,7 @@ export default function Upload() {
                     variant="contained"
                     component="span"
                     sx={{
-                      borderRadius: "30px",
+                      borderRadius: "5px",
                       backgroundColor: "#3b82f6",
                       maxHeight: "50px",
                       minHeight: "30px",

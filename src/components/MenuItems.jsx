@@ -37,7 +37,7 @@ function MenuItems() {
       {isAuthenticated && (
         <Menu.Item key="/score">
           <NavLink to="/score" style={{ textDecoration: "none" }}>
-            View Score 🏅
+            Check Score 🏅
           </NavLink>
         </Menu.Item>
       )}
