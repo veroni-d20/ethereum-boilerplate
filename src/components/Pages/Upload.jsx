@@ -4,7 +4,6 @@ import { TextField, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import bg from "./bg.png";
 import { create } from "ipfs-http-client";
 import Layout from "./Layout";
 
