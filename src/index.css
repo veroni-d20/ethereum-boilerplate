@@ -58,3 +58,71 @@ textarea,
 select {
   font: inherit;
 }
+
+.loader {
+  width: 6vmax;
+  height: 6vmax;
+  border-right: 4px solid #5cdab3;
+
+  border-radius: 100%;
+  -webkit-animation: spinRight 800ms linear infinite;
+  animation: spinRight 800ms linear infinite;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  width: 4vmax;
+  height: 4vmax;
+  display: block;
+  position: absolute;
+  top: calc(50% - 2vmax);
+  left: calc(50% - 2vmax);
+  border-left: 3px solid #5cdab3;
+  border-radius: 100%;
+  -webkit-animation: spinLeft 800ms linear infinite;
+  animation: spinLeft 800ms linear infinite;
+}
+.loader:after {
+  width: 2vmax;
+  height: 2vmax;
+  top: calc(50% - 1vmax);
+  left: calc(50% - 1vmax);
+  border: 0;
+  border-right: 2px solid #5cdab3;
+  -webkit-animation: none;
+  animation: none;
+}
+
+@-webkit-keyframes spinLeft {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes spinLeft {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(720deg);
+  }
+}
+@-webkit-keyframes spinRight {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+@keyframes spinRight {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}

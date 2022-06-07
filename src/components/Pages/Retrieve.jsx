@@ -64,7 +64,9 @@ export default function Retrieve() {
           <h3 className="text-center pt-4">Courses</h3>
 
           {loading ? (
-            <h4>Loading</h4>
+            <div className="d-flex align-items-center mt-5 align-content-center justify-content-center">
+              <div className="loader"></div>
+            </div>
           ) : (
             <>
               <div className="row">
